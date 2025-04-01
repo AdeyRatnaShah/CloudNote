@@ -1,10 +1,11 @@
+require('dotenv').config();
 const express = require('express')
-const connectToMongo = require('./db');
+const connectToMongo = require('./config/db.js');
 
 connectToMongo();
 const app = express()
 const cors = require('cors')
-const port = 5000
+const port = process.env.PORT 
 app.use(express.json())// Middleware
 
  
@@ -18,5 +19,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`iNotebook backend listening on port http://localhost:${port}`)
+  console.log(`CloudNote backend listening on port http://localhost:${port}`)
 })

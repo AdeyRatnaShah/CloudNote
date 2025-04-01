@@ -1,6 +1,6 @@
 // const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'learningIsGood'
+const JWT_SECRET = process.env.JWT_SECRET
 
 const fetchUser = (req,res,next)=>{
     //Get the user from the jwt token

@@ -16,7 +16,6 @@ const Login = (props) => {
                 body: JSON.stringify({ email: credentials.email, password: credentials.password })
             });
             const json = await response.json();
-
     
             if (json.success) {
                 // Save the auth token and redirect
@@ -39,7 +38,7 @@ const Login = (props) => {
     return (
         <div>
             <div className="container mt-3">
-                <h2>Login to continue to iNotebook</h2>
+                <h2>Login to continue to CloudNote</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>

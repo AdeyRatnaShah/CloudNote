@@ -1,15 +1,27 @@
+
 const mongoose = require('mongoose')
-const mongoURI = "mongodb://localhost:27017/iNotebook"
 
+const mongoURI = process.env.MONGO_URI;
 
+console.log("MONGO_URI:", process.env.MONGO_URI); 
 const connectToMongo = async () =>{
     // try {
         
-        await mongoose.connect(mongoURI)
-        console.log("Database Connected succesfully")
+        // await mongoose.connect(mongoURI)
+        // console.log("Database Connected succesfully")
     // } catch (error) {
     //     handleError(error);
     // }
+    try {
+        await mongoose.connect(mongoURI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("MongoDB connected successfully");
+    } catch (error) {
+        console.error("MongoDB connection failed:", error.message);
+        process.exit(1); // Exit the process if connection fails
+    }
 };
 // const handleError = (error) => {
 //     if (error.name === 'MongoServerError' && error.code === 11000) {
