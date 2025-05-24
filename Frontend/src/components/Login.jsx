@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loggedInContext } from '../../../../Devops/frontend/src/App';
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
-    const {isLoggedIn, setIsLoggedIn } = useContext(loggedInContext)
+    // const {isLoggedIn, setIsLoggedIn } = useContext(loggedInContext)
     let navigate = useNavigate();  // Updated to use useNavigate
 
     const handleSubmit = async (e) => {
